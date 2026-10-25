@@ -62,47 +62,47 @@ const submitForm = async () => {
 </script>
 
 <template>
-  <section id="contact" class="py-24 relative">
-    <div class="container mx-auto px-6">
+  <section id="contact" class="py-16 md:py-24 relative">
+    <div class="container mx-auto px-4 sm:px-6">
       <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-          <h2 class="text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
-          <p class="text-gray-400">Let's work together on your next project</p>
+        <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+          <p class="text-gray-400 text-sm sm:text-base">Let's work together on your next project</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12">
-          <div class="space-y-8" data-aos="fade-right">
-            <div class="glass p-6 rounded-2xl flex items-center">
-              <div class="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl mr-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div class="space-y-4 sm:space-y-6" data-aos="fade-right">
+            <div class="glass p-4 sm:p-6 rounded-2xl flex items-center">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-lg sm:text-xl mr-3.5 sm:mr-4 flex-shrink-0">
                 <i class="fas fa-envelope"></i>
               </div>
               <div>
-                <h4 class="text-sm text-gray-400 uppercase tracking-wide">Email</h4>
-                <p class="font-medium break-all" style="color: var(--text-main);">{{ profile.email }}</p>
+                <h4 class="text-xs text-gray-400 uppercase tracking-wide">Email</h4>
+                <p class="font-medium text-sm sm:text-base break-all" style="color: var(--text-main);">{{ profile.email }}</p>
               </div>
             </div>
 
-            <div class="glass p-6 rounded-2xl flex items-center">
-              <div class="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 text-xl mr-4">
+            <div class="glass p-4 sm:p-6 rounded-2xl flex items-center">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-400 text-lg sm:text-xl mr-3.5 sm:mr-4 flex-shrink-0">
                 <i class="fas fa-phone"></i>
               </div>
               <div>
-                <h4 class="text-sm text-gray-400 uppercase tracking-wide">Phone</h4>
-                <p class="font-medium" style="color: var(--text-main);">{{ profile.phone }}</p>
+                <h4 class="text-xs text-gray-400 uppercase tracking-wide">Phone</h4>
+                <p class="font-medium text-sm sm:text-base" style="color: var(--text-main);">{{ profile.phone }}</p>
               </div>
             </div>
 
-            <div class="glass p-6 rounded-2xl flex items-center">
-              <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mr-4">
+            <div class="glass p-4 sm:p-6 rounded-2xl flex items-center">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg sm:text-xl mr-3.5 sm:mr-4 flex-shrink-0">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div>
-                <h4 class="text-sm text-gray-400 uppercase tracking-wide">Location</h4>
-                <p class="font-medium" style="color: var(--text-main);">{{ profile.location }}</p>
+                <h4 class="text-xs text-gray-400 uppercase tracking-wide">Location</h4>
+                <p class="font-medium text-sm sm:text-base" style="color: var(--text-main);">{{ profile.location }}</p>
               </div>
             </div>
 
-            <div class="flex flex-wrap gap-4 pt-4">
+            <div class="flex flex-wrap gap-3 sm:gap-4 pt-2 sm:pt-4">
               <a
                 v-for="social in socials"
                 :key="social.href"
@@ -110,72 +110,78 @@ const submitForm = async () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 :aria-label="social.label"
-                class="inline-flex items-center justify-center hover:bg-white/20 transition-all"
+                class="inline-flex items-center justify-center hover:bg-white/20 transition-all border border-indigo-500/20"
                 style="color: #6366f1;"
-                :class="social.wide ? 'gap-2 rounded-full bg-white/5 px-4 py-2 hover:scale-105' : 'w-10 h-10 rounded-full bg-white/5 hover:scale-110'"
+                :class="social.wide ? 'gap-2 rounded-full bg-white/5 px-4 py-2 hover:scale-105' : 'w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/5 hover:scale-110'"
               >
                 <i :class="social.icon"></i>
-                <span v-if="social.wide" class="text-sm font-medium">{{ social.label }}</span>
+                <span v-if="social.wide" class="text-xs sm:text-sm font-medium">{{ social.label }}</span>
               </a>
             </div>
           </div>
 
-          <div class="glass p-8 rounded-3xl" data-aos="fade-left">
-            <form class="space-y-6" @submit.prevent="submitForm">
-              <div>
-                <label for="name" class="block text-sm text-gray-400 mb-2">Name</label>
-                <input
-                  id="name"
-                  v-model="form.name"
-                  type="text"
-                  name="name"
-                  required
-                  class="w-full px-4 py-3 rounded-xl input-field focus:outline-none"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label for="email" class="block text-sm text-gray-400 mb-2">Email</label>
-                <input
-                  id="email"
-                  v-model="form.email"
-                  type="email"
-                  name="email"
-                  required
-                  class="w-full px-4 py-3 rounded-xl input-field focus:outline-none"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label for="message" class="block text-sm text-gray-400 mb-2">Message</label>
-                <textarea
-                  id="message"
-                  v-model="form.message"
-                  name="message"
-                  rows="4"
-                  required
-                  class="w-full px-4 py-3 rounded-xl input-field focus:outline-none resize-none"
-                  placeholder="Tell me about your project..."
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="w-full btn-primary py-3 rounded-xl font-bold tracking-wide shadow-lg text-white disabled:cursor-not-allowed disabled:opacity-75"
-                :disabled="isSending"
-              >
-                <i v-if="isSending" class="fas fa-spinner fa-spin mr-2"></i>
-                {{ isSending ? "Sending..." : "Send Message" }}
-              </button>
-              <p
-                v-if="status"
-                class="rounded-xl border px-4 py-3 text-sm"
-                :class="statusClasses[status.type]"
-                aria-live="polite"
-              >
-                {{ status.message }}
-              </p>
-            </form>
-          </div>
+          <form
+            id="contact-form"
+            class="space-y-4 sm:space-y-6 glass p-6 sm:p-8 rounded-2xl"
+            data-aos="fade-left"
+            @submit.prevent="submitForm"
+          >
+            <div>
+              <label for="name" class="block text-xs sm:text-sm font-medium mb-2" style="color: var(--text-main);">
+                Name
+              </label>
+              <input
+                id="name"
+                v-model="form.name"
+                type="text"
+                required
+                class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl input-field text-sm"
+                placeholder="Your Name"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-xs sm:text-sm font-medium mb-2" style="color: var(--text-main);">
+                Email
+              </label>
+              <input
+                id="email"
+                v-model="form.email"
+                type="email"
+                required
+                class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl input-field text-sm"
+                placeholder="your@email.com"
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-xs sm:text-sm font-medium mb-2" style="color: var(--text-main);">
+                Message
+              </label>
+              <textarea
+                id="message"
+                v-model="form.message"
+                rows="4"
+                required
+                class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl input-field text-sm"
+                placeholder="Your Message..."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              :disabled="isSending"
+              class="w-full btn-primary py-3 sm:py-3.5 rounded-xl font-bold tracking-wide transition-all shadow-lg hover:shadow-indigo-500/50 flex items-center justify-center gap-2 text-sm sm:text-base disabled:opacity-75 disabled:cursor-not-allowed"
+            >
+              <span>{{ isSending ? 'Sending...' : 'Send Message' }}</span>
+              <i class="fas" :class="isSending ? 'fa-spinner fa-spin' : 'fa-paper-plane'"></i>
+            </button>
+
+            <div
+              v-if="status"
+              class="p-4 rounded-xl border text-sm transition-all"
+              :class="statusClasses[status.type] || 'border-indigo-500/30 bg-indigo-500/10 text-indigo-200'"
+            >
+              {{ status.message }}
+            </div>
+          </form>
         </div>
       </div>
     </div>

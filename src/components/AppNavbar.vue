@@ -14,33 +14,46 @@ const closeMenu = () => {
 };
 
 const updateScrollState = () => {
-  isScrolled.value = window.scrollY > 50;
+  isScrolled.value = window.scrollY > 40;
+};
+
+const handleResize = () => {
+  if (window.innerWidth >= 1024) {
+    isMenuOpen.value = false;
+  }
 };
 
 onMounted(() => {
   updateScrollState();
   window.addEventListener("scroll", updateScrollState, { passive: true });
+  window.addEventListener("resize", handleResize, { passive: true });
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", updateScrollState);
+  window.removeEventListener("resize", handleResize);
 });
 </script>
 
 <template>
   <nav
     id="navbar"
-    class="fixed w-full z-50 transition-all duration-300 glass-nav"
-    :class="{ 'navbar-scrolled': isScrolled }"
+    class="fixed w-full top-0 left-0 z-50 glass-nav transition-all duration-300"
+    :class="{ 'navbar-scrolled py-3 shadow-lg': isScrolled, 'py-3.5 md:py-4': !isScrolled }"
   >
-    <div class="container mx-auto px-6 py-4">
+    <div class="container mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between">
-        <a href="#home" class="text-2xl font-bold gradient-text tracking-tighter" @click="closeMenu">
+        <!-- Brand Logo -->
+        <a
+          href="#home"
+          class="text-xl sm:text-2xl font-bold gradient-text tracking-tighter"
+          @click="closeMenu"
+        >
           {{ profile.brand }}
         </a>
 
-        <!-- Desktop Navigation Links with guaranteed spacing -->
-        <div class="hidden md:flex items-center navbar-links space-x-8 gap-8">
+        <!-- Desktop Navigation Links (strictly hidden on mobile, visible on desktop via CSS) -->
+        <div class="navbar-links">
           <a
             v-for="item in navItems"
             :key="item.href"
@@ -51,7 +64,8 @@ onUnmounted(() => {
           </a>
         </div>
 
-        <div class="flex items-center gap-4">
+        <!-- Controls Toolbar -->
+        <div class="flex items-center gap-3">
           <!-- Video Sound Toggle Button -->
           <button
             type="button"
@@ -66,32 +80,31 @@ onUnmounted(() => {
 
           <ThemeToggle />
 
+          <!-- Mobile / Tablet Hamburger Toggle Button -->
           <button
-            class="md:hidden focus:outline-none"
+            class="hamburger-btn focus:outline-none"
             style="color: var(--text-main);"
             type="button"
             aria-label="Toggle navigation"
             :aria-expanded="isMenuOpen"
             @click="isMenuOpen = !isMenuOpen"
           >
-            <i class="fas text-2xl" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+            <i class="fas text-xl" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
           </button>
         </div>
       </div>
 
+      <!-- Mobile & Tablet Dropdown Menu -->
       <div
         v-show="isMenuOpen"
         id="mobile-menu"
-        class="md:hidden mt-4 glass rounded-xl p-4 absolute top-full left-0 right-0 mx-4 border"
-        style="border-color: var(--border-color); background: var(--mobile-menu-bg);"
+        class="mobile-nav-menu"
       >
         <a
-          v-for="(item, index) in navItems"
+          v-for="item in navItems"
           :key="item.href"
           :href="item.href"
-          class="block py-3 hover:text-indigo-300"
-          style="color: var(--text-muted);"
-          :style="index < navItems.length - 1 ? 'border-bottom: 1px solid var(--border-color);' : ''"
+          class="mobile-nav-link"
           @click="closeMenu"
         >
           {{ item.label }}

@@ -39,49 +39,50 @@ const downloadCv = async () => {
 </script>
 
 <template>
-  <section id="about" class="py-24 relative">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto glass p-8 md:p-12 rounded-3xl" data-aos="fade-up">
-        <div class="flex flex-col md:flex-row items-center gap-12">
-          <div class="md:w-1/3 relative group">
+  <section id="about" class="py-16 md:py-24 relative">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto glass p-6 sm:p-8 md:p-12 rounded-3xl" data-aos="fade-up">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <!-- Profile image container (centered and responsive on all devices) -->
+          <div class="w-full max-w-[220px] sm:max-w-[260px] md:max-w-none md:w-1/3 relative group mx-auto">
             <div class="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
             <div class="relative rounded-2xl overflow-hidden aspect-square">
               <img
                 :src="profile.image"
                 alt="Profile"
-                class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110"
+                class="w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
               />
             </div>
           </div>
 
-          <div class="md:w-2/3 text-left">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">About <span class="gradient-text">Me</span></h2>
-            <h3 class="text-xl text-indigo-400 mb-4 font-mono">{{ profile.title }}</h3>
-            <p class="text-gray-400 mb-6 leading-relaxed">
+          <div class="w-full md:w-2/3 text-left">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">About <span class="gradient-text">Me</span></h2>
+            <h3 class="text-lg sm:text-xl text-indigo-400 mb-3 md:mb-4 font-mono font-medium">{{ profile.title }}</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed text-sm sm:text-base">
               My journey in web development started in 2025 at
               <span style="color: var(--text-main); font-weight: 500;">Passerelles Numeriques Cambodia</span>. I'm passionate
               about building scalable software and creating effective solutions that help people's lives.
             </p>
 
-            <div class="grid grid-cols-2 gap-6 mb-8">
-              <div class="p-4 rounded-xl" style="background: var(--panel-tint); border: 1px solid var(--panel-border);">
-                <p class="text-gray-400 text-sm">Experience</p>
-                <p class="text-xl font-bold" style="color: var(--text-main);">2+ Years</p>
+            <div class="grid grid-cols-2 gap-3 sm:gap-6 mb-6 sm:mb-8">
+              <div class="p-3.5 sm:p-4 rounded-xl" style="background: var(--panel-tint); border: 1px solid var(--panel-border);">
+                <p class="text-gray-400 text-xs sm:text-sm">Experience</p>
+                <p class="text-lg sm:text-xl font-bold" style="color: var(--text-main);">2+ Years</p>
               </div>
-              <div class="p-4 rounded-xl" style="background: var(--panel-tint); border: 1px solid var(--panel-border);">
-                <p class="text-gray-400 text-sm">Projects</p>
-                <p class="text-xl font-bold" style="color: var(--text-main);">{{ projectCount }}</p>
+              <div class="p-3.5 sm:p-4 rounded-xl" style="background: var(--panel-tint); border: 1px solid var(--panel-border);">
+                <p class="text-gray-400 text-xs sm:text-sm">Projects</p>
+                <p class="text-lg sm:text-xl font-bold" style="color: var(--text-main);">{{ projectCount }}</p>
               </div>
             </div>
 
             <button
               type="button"
-              class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-medium transition"
+              class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-medium transition text-sm sm:text-base py-1"
               :class="{ 'pointer-events-none opacity-80': isDownloading }"
               @click="downloadCv"
             >
               {{ downloadText }}
-              <i class="fas ml-2 text-sm" :class="isDownloading ? 'fa-spinner fa-spin' : 'fa-arrow-right'"></i>
+              <i class="fas ml-2 text-xs sm:text-sm" :class="isDownloading ? 'fa-spinner fa-spin' : 'fa-arrow-right'"></i>
             </button>
           </div>
         </div>

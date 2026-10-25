@@ -16,7 +16,7 @@ onMounted(() => {
         }
       });
     },
-    { threshold: 0.5 },
+    { threshold: 0.2 },
   );
 
   document.querySelectorAll("[data-skill]").forEach((item) => observer.observe(item));
@@ -28,29 +28,29 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section id="skills" class="py-24 relative bg-black/20">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-4">Core <span class="gradient-text">Skills</span></h2>
-        <p class="text-gray-400 max-w-xl mx-auto">Technologies I use to bring ideas to life</p>
+  <section id="skills" class="py-16 md:py-24 relative bg-black/20">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Core <span class="gradient-text">Skills</span></h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">Technologies I use to bring ideas to life</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
         <article
           v-for="(skill, index) in skills"
           :key="skill.name"
-          class="glass p-8 rounded-2xl card-hover"
+          class="glass p-6 sm:p-8 rounded-2xl card-hover"
           data-aos="fade-up"
-          :data-aos-delay="(index + 1) * 100"
+          :data-aos-delay="(index + 1) * 60"
           :data-skill="skill.name"
         >
-          <div class="flex items-center mb-6">
-            <i :class="[skill.icon, 'text-4xl mr-4']"></i>
-            <h3 class="text-xl font-bold">{{ skill.name }}</h3>
+          <div class="flex items-center mb-4 sm:mb-6">
+            <i :class="[skill.icon, 'text-3xl sm:text-4xl mr-3.5 sm:mr-4 flex-shrink-0']"></i>
+            <h3 class="text-lg sm:text-xl font-bold" style="color: var(--text-main);">{{ skill.name }}</h3>
           </div>
-          <div class="flex justify-between mb-2 text-sm">
-            <span class="text-gray-300">{{ skill.level }}</span>
-            <span class="text-primary">{{ skill.percent }}%</span>
+          <div class="flex justify-between mb-2 text-xs sm:text-sm">
+            <span class="text-gray-400">{{ skill.level }}</span>
+            <span class="text-primary font-semibold">{{ skill.percent }}%</span>
           </div>
           <div class="skill-container">
             <div
