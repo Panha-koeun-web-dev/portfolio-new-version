@@ -174,14 +174,14 @@ onUnmounted(() => {
         </div>
       </div>
 
-      <!-- Right Column: Original Profile Photo (Clean, floating with glowing backdrop) -->
-      <div class="relative block mt-6 md:mt-0 max-w-[260px] sm:max-w-xs md:max-w-md mx-auto w-full" data-aos="fade-left">
+      <!-- Right Column: Original Profile Photo (Visible on desktop/tablet, hidden on mobile to avoid duplication with About section) -->
+      <div class="relative hidden md:block" data-aos="fade-left">
         <div class="relative w-full aspect-square max-w-md mx-auto floating">
           <div
-            class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-pink-500 rounded-full blur-[40px] md:blur-[60px] opacity-30 group-hover:opacity-50 transition duration-1000"
+            class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-pink-500 rounded-full blur-[60px] opacity-30 group-hover:opacity-50 transition duration-1000"
           ></div>
           <div
-            class="relative z-10 w-full h-full rounded-2xl overflow-hidden glass p-2 rotate-2 md:rotate-3 hover:rotate-0 transition-all duration-500 shadow-2xl"
+            class="relative z-10 w-full h-full rounded-2xl overflow-hidden glass p-2 rotate-3 hover:rotate-0 transition-all duration-500 shadow-2xl"
           >
             <img
               :src="profile.image"
