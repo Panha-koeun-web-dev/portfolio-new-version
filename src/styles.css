@@ -156,6 +156,12 @@ h6 {
 }
 
 /* Navigation */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 .nav-link {
     position: relative;
     color: var(--text-muted);
@@ -178,7 +184,8 @@ h6 {
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
 }
 
@@ -519,3 +526,78 @@ footer {
         opacity: 1 !important;
     }
 }
+
+/* Hero Video Background Overlay */
+.hero-video-overlay {
+    background: linear-gradient(to right, rgba(11, 17, 32, 0.92) 0%, rgba(11, 17, 32, 0.75) 45%, rgba(11, 17, 32, 0.45) 100%),
+                radial-gradient(ellipse at 75% 50%, rgba(11, 17, 32, 0.15) 0%, rgba(11, 17, 32, 0.85) 100%);
+    transition: background 0.3s ease;
+}
+
+:root:not([data-theme="dark"]) .hero-video-overlay {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.82) 45%, rgba(241, 245, 249, 0.45) 100%),
+                radial-gradient(ellipse at 75% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(241, 245, 249, 0.85) 100%);
+}
+
+.hero-bottom-fade {
+    background: linear-gradient(to bottom, transparent 0%, var(--bg-darker) 100%);
+}
+
+
+/* Sound Toggle Control (matches .theme-toggle dimensions) */
+.sound-toggle {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 9999px;
+    background: var(--surface-3);
+    border: 1px solid var(--border-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-faint);
+    font-size: 0.72rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sound-toggle:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.sound-toggle.sound-active {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.12);
+}
+
+
+/* Sound Toggle Control (matches .theme-toggle dimensions) */
+.sound-toggle {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 9999px;
+    background: var(--surface-3);
+    border: 1px solid var(--border-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-faint);
+    font-size: 0.72rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sound-toggle:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.sound-toggle.sound-active {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.12);
+}
+

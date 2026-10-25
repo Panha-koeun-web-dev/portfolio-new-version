@@ -1,9 +1,8 @@
 <script setup>
 import { computed } from "vue";
-import { education, educationHighlights, projects } from "../data/portfolio";
+import { education, experience, educationHighlights, projects } from "../data/portfolio";
 
 const projectCount = computed(() => projects.length);
-
 </script>
 
 <template>
@@ -12,17 +11,18 @@ const projectCount = computed(() => projects.length);
       <div class="text-center mb-16" data-aos="fade-up">
         <div class="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-2 text-sm font-medium text-indigo-300">
           <i class="fas fa-graduation-cap"></i>
-          Learning Journey
+          Learning &amp; Experience Journey
         </div>
-        <h2 class="mt-6 text-4xl font-bold">My <span class="gradient-text">Education</span></h2>
+        <h2 class="mt-6 text-4xl font-bold">My <span class="gradient-text">Education &amp; Experience</span></h2>
         <p class="mx-auto mt-4 max-w-2xl text-gray-400">
-          A focused path built around practical training, self-driven learning, and real project experience in modern web development.
+          A focused path built around academic training, practical internships, and real project experience in modern software development.
         </p>
       </div>
 
       <div class="grid gap-8 lg:grid-cols-[1.4fr_0.9fr]">
         <div class="glass rounded-3xl p-8 md:p-10" data-aos="fade-right">
           <div class="education-timeline">
+            <!-- Timeline Item 1: Passerelles Numeriques Cambodia -->
             <article class="education-item">
               <div class="education-dot"></div>
               <div class="education-card">
@@ -34,6 +34,36 @@ const projectCount = computed(() => projects.length);
                 <p class="mt-4 leading-relaxed text-gray-400">{{ education.description }}</p>
                 <div class="mt-6 flex flex-wrap gap-3">
                   <span v-for="tag in education.tags" :key="tag" class="education-tag">{{ tag }}</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Timeline Item 2: Odoo Developer Intern — RMA Cambodia -->
+            <article class="education-item">
+              <div class="education-dot" style="background: linear-gradient(135deg, var(--secondary), var(--accent));"></div>
+              <div class="education-card">
+                <div class="mb-4 inline-flex items-center rounded-full bg-pink-500/10 px-3 py-1 text-sm font-medium text-pink-300">
+                  {{ experience.period }}
+                </div>
+                <h3 class="text-2xl font-bold" style="color: var(--text-main);">{{ experience.company }}</h3>
+                <p class="mt-2 text-sm uppercase tracking-[0.25em] text-indigo-300 font-semibold">{{ experience.role }}</p>
+                
+                <!-- Responsibilities list -->
+                <ul class="mt-4 space-y-2 text-sm leading-relaxed" style="color: var(--text-muted);">
+                  <li
+                    v-for="(point, idx) in experience.responsibilities"
+                    :key="idx"
+                    class="flex items-start gap-2"
+                  >
+                    <i class="fas fa-check text-xs text-indigo-400 mt-1 flex-shrink-0"></i>
+                    <span :class="{ 'font-semibold text-indigo-400': point.includes('School Management') }">
+                      {{ point }}
+                    </span>
+                  </li>
+                </ul>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <span v-for="tag in experience.tags" :key="tag" class="education-tag">{{ tag }}</span>
                 </div>
               </div>
             </article>
@@ -68,7 +98,7 @@ const projectCount = computed(() => projects.length);
               </div>
             </div>
             <p class="mt-6 leading-relaxed text-gray-400">
-              I am currently focused on growing as a dependable developer who can design, build, and improve meaningful digital products.
+              I am currently focused on growing as a dependable developer who can design, build, and improve meaningful digital products and enterprise ERP applications.
             </p>
           </div>
         </div>

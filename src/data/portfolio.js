@@ -24,13 +24,52 @@ export const typewriterPhrases = [
   "UX/UI DESIGNER",
 ];
 
+export const experience = {
+  role: "Odoo Developer Intern",
+  company: "RMA Cambodia",
+  period: "26th September 2026 – 26th December 2026",
+  location: "Phnom Penh, Cambodia",
+  description:
+    "Developing and customizing Odoo ERP modules to support business workflows, access control security, and system integrations.",
+  responsibilities: [
+    "Develop and customize Odoo modules to support business workflows and requirements.",
+    "Developed School Management Project",
+    "Work with Odoo 19, including models, views, access controls, and business logic.",
+    "Configure and explore ERP workflows across Purchase, Inventory, and Accounting.",
+    "Develop and test REST API endpoints and integrate them with external applications.",
+    "Implement access control lists (ACLs), user groups, and record rules to improve application security.",
+    "Troubleshoot errors, debug issues, and test functionality using Postman.",
+    "Work with XML, JavaScript, CSS, and Odoo development tools to customize application interfaces.",
+    "Collaborate with supervisors and team members to improve technical skills and understand real-world ERP implementations.",
+  ],
+  tags: [
+    "Odoo 19",
+    "Python",
+    "XML",
+    "REST API",
+    "Postman",
+    "ERP Workflows",
+    "Access Control (ACL)",
+    "JavaScript & CSS",
+  ],
+};
 export const education = {
-  period: "2025 - Present",
+  period: "2025 - 2027",
   school: "Passerelles Numeriques Cambodia",
   program: "Web Development Training",
   description:
     "Building a strong foundation in front-end and back-end development through hands-on projects, teamwork, and problem-solving practice.",
-  tags: ["HTML, CSS, JavaScript", "Node.js & PHP", "UI/UX Practice", "Team Collaboration"],
+  tags: [
+    "HTML, CSS, JavaScript",
+    "TypeScript",
+    "Vue.JS",
+    "Node.js & PHP",
+    "Laravel",
+    "Python",
+    "MySQL",
+    "UI/UX Practice",
+    "Team Collaboration",
+  ],
 };
 
 export const educationHighlights = [
@@ -61,6 +100,8 @@ export const skills = [
   { name: "React.JS", level: "Basic", percent: 70, icon: "devicon-react-original text-cyan-400" },
   { name: "PHP", level: "Advanced", percent: 80, icon: "devicon-php-plain text-indigo-300" },
   { name: "Laravel", level: "Advanced", percent: 80, icon: "devicon-laravel-plain text-red-500" },
+  { name: "Python", level: "Advanced", percent: 75, icon: "devicon-python-plain text-yellow-500" },
+  { name: "MySQL", level: "Advanced", percent: 80, icon: "devicon-mysql-plain text-blue-500" },
 ];
 
 export const projects = [

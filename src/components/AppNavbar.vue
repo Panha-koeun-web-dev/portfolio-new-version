@@ -2,6 +2,9 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import { navItems, profile } from "../data/portfolio";
 import ThemeToggle from "./ThemeToggle.vue";
+import { useVideoAudio } from "../composables/useVideoAudio";
+
+const { isMuted, toggleSound } = useVideoAudio();
 
 const isMenuOpen = ref(false);
 const isScrolled = ref(false);
@@ -16,7 +19,7 @@ const updateScrollState = () => {
 
 onMounted(() => {
   updateScrollState();
-  window.addEventListener("scroll", updateScrollState);
+  window.addEventListener("scroll", updateScrollState, { passive: true });
 });
 
 onUnmounted(() => {
@@ -36,7 +39,8 @@ onUnmounted(() => {
           {{ profile.brand }}
         </a>
 
-        <div class="hidden md:flex items-center space-x-8">
+        <!-- Desktop Navigation Links with guaranteed spacing -->
+        <div class="hidden md:flex items-center navbar-links space-x-8 gap-8">
           <a
             v-for="item in navItems"
             :key="item.href"
@@ -48,6 +52,18 @@ onUnmounted(() => {
         </div>
 
         <div class="flex items-center gap-4">
+          <!-- Video Sound Toggle Button -->
+          <button
+            type="button"
+            class="sound-toggle"
+            :class="{ 'sound-active': !isMuted }"
+            :title="isMuted ? 'Unmute video audio' : 'Mute video audio'"
+            aria-label="Toggle video audio"
+            @click="toggleSound"
+          >
+            <i :class="isMuted ? 'fas fa-volume-mute' : 'fas fa-volume-up'"></i>
+          </button>
+
           <ThemeToggle />
 
           <button
@@ -66,7 +82,8 @@ onUnmounted(() => {
       <div
         v-show="isMenuOpen"
         id="mobile-menu"
-        class="md:hidden mt-4 glass rounded-xl p-4 absolute top-full left-0 right-0 mx-4 border border-gray-700"
+        class="md:hidden mt-4 glass rounded-xl p-4 absolute top-full left-0 right-0 mx-4 border"
+        style="border-color: var(--border-color); background: var(--mobile-menu-bg);"
       >
         <a
           v-for="(item, index) in navItems"
@@ -74,7 +91,7 @@ onUnmounted(() => {
           :href="item.href"
           class="block py-3 hover:text-indigo-300"
           style="color: var(--text-muted);"
-          :class="{ 'border-b border-gray-700': index < navItems.length - 1 }"
+          :style="index < navItems.length - 1 ? 'border-bottom: 1px solid var(--border-color);' : ''"
           @click="closeMenu"
         >
           {{ item.label }}
