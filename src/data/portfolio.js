@@ -115,7 +115,7 @@ export const projects = [
   {
     title: "Attendance System",
     image: "/assets/images/projects/project2.png",
-    link: "#",
+    link: "https://github.com/Panhakoeun/Attendance-System-Face-Detection.git",
     description: "Intelligent attendance tracking system using advanced face detection algorithms.",
     tags: ["Python", "Bootstrap", "JavaScript"],
   },
@@ -129,14 +129,14 @@ export const projects = [
   {
     title: "Task Management System",
     image: "/assets/images/projects/project5.png",
-    link: "#",
+    link: "https://github.com/Panhakoeun/laravel-rest-api.git",
     description: "A system that helps users manage tasks quickly and clearly.",
     tags: ["PHP", "Bootstrap"],
   },
   {
     title: "PreyLang Coffee POS System",
     image: "/assets/images/projects/preylang.png",
-    link: "https://www.preylang-coffee-pos.shop/",
+    link: "https://github.com/Panha-koeun-web-dev/PREY-LANG-COFFEE-POS-SYSTEM.git",
     description: "Coffee shop POS with product management and customer QR ordering.",
     tags: ["React.JS", "TypeScript", "Laravel", "Bootstrap", "JavaScript", "PHP"],
   },
@@ -150,14 +150,14 @@ export const projects = [
   {
     title: "E-commerce CRUD Website",
     image: "/assets/images/projects/project3.png",
-    link: "#",
+    link: "https://github.com/Panhakoeun/ecommerce-backend.git",
     description: "A full-stack E-Commerce Management System with user authentication and RESTful APIs connecting the frontend and backend.",
     tags: ["Vue.JS", "Laravel", "MySQL"],
   },
   {
     title: "Krousar Thmey NGO",
     image: "/assets/images/projects/krousar-thmey.png",
-    link: "https://krousar-thmey.sreydeth.site/",
+    link: "https://github.com/Krousar-Tmey-Website/yonyen-sys-Krousar-Tmey-Website.git",
     description: "A full-stack CRUD web application for Krousar Thmey NGO, built and deployed on AWS with a 6-member team.",
     tags: ["Laravel", "Blade", "MySQL"],
   },
@@ -178,12 +178,12 @@ export const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/panha-koeun-b15a71399",
+    href: "https://www.linkedin.com/in/panha-koeun-7080a5438/",
     icon: "fab fa-linkedin-in",
   },
   {
     label: "Telegram",
-    href: "https://t.me/Raphi_nhaz",
+    href: "https://t.me/Panha_koeun",
     icon: "fab fa-telegram-plane",
   },
 ];
