@@ -1,7 +1,7 @@
 export const profile = {
   name: "PANHA KOEUN",
   brand: "PANHA.DEV",
-  title: "Web Developer & Designer",
+  title: "Web Developer | Odoo Web Developer ",
   location: "Phnom Penh, Cambodia",
   email: "panha.koeun142007@gmail.com",
   phone: "+855 889 756 260",
@@ -19,9 +19,11 @@ export const navItems = [
 ];
 
 export const typewriterPhrases = [
+  "WEB FULL STACK DEVELOPER",
   "FRONTEND DEVELOPER",
   "BACKEND DEVELOPER",
-  "UX/UI DESIGNER",
+  "ODOO WEB DEVELOPER",
+
 ];
 
 export const experience = {
